@@ -5,6 +5,8 @@ using UnityEngine;
 public class MapGenerator : MonoBehaviour
 {
     public GameObject Map;
+    public GameObject horizontalWay;
+    public GameObject verticalWay;
 
     public int[,] mapArray = new int[10, 10];
     private int mapCnt;
@@ -28,8 +30,8 @@ public class MapGenerator : MonoBehaviour
     {
         if(mapArray[y, x] == 0)
         {
-            float mapX = x * 50;
-            float mapY = y * 50;
+            float mapX = x * 70;
+            float mapY = y * 70;
             Vector3 spawnPoint = new Vector3(mapX, mapY, 0);
             Instantiate(Map, spawnPoint, Quaternion.identity);
             curMapCnt += 1;
@@ -41,22 +43,50 @@ public class MapGenerator : MonoBehaviour
         {
             case 0:
                 if (curMapCnt > mapCnt) break;
-                if (x - 1 > -1 && mapArray[y, x - 1] == 0) MapGenerate(x - 1, y);
+                if (x - 1 > -1 && mapArray[y, x - 1] == 0)
+                {
+                    MapGenerate(x - 1, y);
+                    float mapX = x * 70 ;
+                    float mapY = y * 70 ;
+                    Vector3 vTemp = new Vector3(mapX - 35, mapY, 0);
+                    Instantiate(horizontalWay, vTemp, Quaternion.identity);
+                }
                 else MapGenerate(x, y);
                 break;
             case 1:
                 if (curMapCnt > mapCnt) break;
-                if (x + 1 < 10 && mapArray[y, x + 1] == 0) MapGenerate(x + 1, y);
+                if (x + 1 < 10 && mapArray[y, x + 1] == 0)
+                {
+                    MapGenerate(x + 1, y);
+                    float mapX = x * 70 ;
+                    float mapY = y * 70 ;
+                    Vector3 vTemp = new Vector3(mapX + 35, mapY, 0);
+                    Instantiate(horizontalWay, vTemp, Quaternion.identity);
+                }
                 else MapGenerate(x, y);
                 break;
             case 2:
                 if (curMapCnt > mapCnt) break;
-                if (y - 1 > -1 && mapArray[y - 1, x] == 0) MapGenerate(x, y - 1);
+                if (y - 1 > -1 && mapArray[y - 1, x] == 0)
+                {
+                    MapGenerate(x, y - 1);
+                    float mapX = x * 70 ;
+                    float mapY = y * 70 ;
+                    Vector3 vTemp = new Vector3(mapX, mapY - 35, 0);
+                    Instantiate(verticalWay, vTemp, Quaternion.identity);
+                }
                 else MapGenerate(x, y);
                 break;
             case 3:
                 if (curMapCnt > mapCnt) break;
-                if (y + 1 < 10 && mapArray[y + 1, x] == 0) MapGenerate(x, y + 1);
+                if (y + 1 < 10 && mapArray[y + 1, x] == 0)
+                {
+                    MapGenerate(x, y + 1);
+                    float mapX = x * 70 ;
+                    float mapY = y * 70 ;
+                    Vector3 vTemp = new Vector3(mapX, mapY + 35, 0);
+                    Instantiate(verticalWay, vTemp, Quaternion.identity);
+                }
                 else MapGenerate(x, y);
                 break;
         }

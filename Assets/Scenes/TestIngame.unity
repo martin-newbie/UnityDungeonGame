@@ -165,6 +165,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Map: {fileID: 7658274621854519036, guid: d97e8421015e43b489d63c72960fa16c, type: 3}
+  horizontalWay: {fileID: 1742344313980161046, guid: ab7ea119df3e5fe4ba234cb389c753fa,
+    type: 3}
+  verticalWay: {fileID: 4336419204828840821, guid: 2b898d8342eaa444a871eb644854dbe4,
+    type: 3}
 --- !u!1 &1907501160
 GameObject:
   m_ObjectHideFlags: 0
