@@ -19,13 +19,9 @@ public class PlayerMove : MonoBehaviour
         float moveY = Input.GetAxis("Vertical");
 
         if(moveX < 0)
-        {
             sprite.flipX = true;
-        }
         if(moveX > 0)
-        {
             sprite.flipX = false;
-        }
 
         transform.Translate(moveX * moveSpeed * Time.deltaTime, moveY * moveSpeed * Time.deltaTime, 0);
 
