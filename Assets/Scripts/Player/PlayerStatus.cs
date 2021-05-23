@@ -10,9 +10,9 @@ public class PlayerStatus : MonoBehaviour
     public float maxMp;
     public float maxStress;
 
-    private float curHp;
-    private float curMp;
-    private float curStress;
+    public float curHp;
+    public float curMp;
+    public float curStress;
 
     public Text HpText;
     public Slider HpBar;
@@ -23,7 +23,7 @@ public class PlayerStatus : MonoBehaviour
     public Text stressText;
     public Slider stressBar;
 
-    void Start()
+    void Awake()
     {
         curHp = maxHp;
         curMp = maxMp;
@@ -33,6 +33,7 @@ public class PlayerStatus : MonoBehaviour
     void Update()
     {
         StatusLogic();
+        Debug.Log(curHp);
     }
 
     private void StatusLogic()
